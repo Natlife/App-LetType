@@ -1,7 +1,9 @@
 import React from "react";
+import word from "./word.json";
 class MyComponent extends React.Component {
 
     state = {
+        text: "Hi, there is the test for typing app",
         result: ""
     }
     handleOnChangeResult = (event) => {
@@ -9,11 +11,30 @@ class MyComponent extends React.Component {
             result: event.target.value,
         })
     }
-    handleClickButton = () => {
-        alert("READ");
+    handleClickButton = (total) => {
+        this.setState({
+            text: this.getRandomWord(word, total),
+            result: ""
+        })
     }
+    /*
+    getRandomWord:
+    arr: array of words from word.json
+    total: the total length of the script
+    use slice() to tranfer to new array and sort them random 
+    then slice from 0 to total and return the script have total length
+    */
+    getRandomWord = (arr, total) => {
+        let script = [];
+        for (let i = 0; i < total; i++) {
+            const val = Math.floor(Math.random() * (arr.length));
+            script.push(arr[val]);
+        }
+        return script.join(" ");
+    }
+
     render() {
-        const text = "Hi, there is the test for typing app";
+        const text = this.state.text;
         const { result } = this.state;
         const chars = text.split("").map((char, index) => {
             let Color = "";
@@ -35,8 +56,9 @@ class MyComponent extends React.Component {
             <div>
                 <h1 className="exam" style={{ fontSize: "1.5rem", lineHeight: "1.4", userSelect: "none" }}>{chars}</h1>
                 <br />
-                <input type="text" value={this.state.result} onChange={(event) => this.handleOnChangeResult(event)} />
-            </div>
+                <input type="text" value={this.state.result} onChange={(event) => this.handleOnChangeResult(event)} /><br />
+                <button onClick={() => this.handleClickButton(10)}>Reload</button>
+            </div >
         )
     }
 }
