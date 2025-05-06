@@ -41,6 +41,10 @@ class MyComponent extends React.Component {
         }
         return script.join(" ");
     }
+    handleKeyDown = (e) => {
+        const inputEle = document.getElementById("input-script");
+        inputEle.focus();
+    };
 
     render() {
         const text = this.state.text;
@@ -60,7 +64,7 @@ class MyComponent extends React.Component {
                 </span>
             );
         });
-
+        window.addEventListener('keydown', (event) => this.handleKeyDown(event));
         return (
             <div>
                 <h1 className="exam" style={{ fontSize: "1.5rem", lineHeight: "1.4", userSelect: "none" }}>{chars}</h1>
