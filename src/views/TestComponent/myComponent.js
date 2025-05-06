@@ -21,6 +21,10 @@ class MyComponent extends React.Component {
             text: this.getRandomWord(word, total),
             result: ""
         })
+        const inputEle = document.getElementById("input-script");
+        if (inputEle) {
+            inputEle.focus();
+        }
     }
     /*
     getRandomWord:
@@ -61,8 +65,8 @@ class MyComponent extends React.Component {
             <div>
                 <h1 className="exam" style={{ fontSize: "1.5rem", lineHeight: "1.4", userSelect: "none" }}>{chars}</h1>
                 <br />
-                <input type="text" value={this.state.result} onChange={(event) => this.handleOnChangeResult(event)} /><br />
-                <button onClick={() => this.handleClickButton(10)}>Reload</button>
+                <input id="input-script" autoFocus type="text" value={this.state.result} onChange={(event) => this.handleOnChangeResult(event)} /><br />
+                <button id="but-regen" onClick={() => this.handleClickButton(10)}>Reload</button>
             </div >
         )
     }

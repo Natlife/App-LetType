@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+#but-regen{
+  width: 30%;
+  height: 30px;
+  border: solid 2px;
+  border-radius: 10px;
+  background-color: #61dafb;
+  color: #282c34;
+  font-weight: bold;
+
+}
+#input-script{
+  opacity: 0;
+  caret-color: transparent;
+  
+}
