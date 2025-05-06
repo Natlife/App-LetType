@@ -1,5 +1,5 @@
 import React from "react";
-import word from "./word.json";
+import word from "../../data/word.json";
 class MyComponent extends React.Component {
 
     state = {
@@ -9,7 +9,12 @@ class MyComponent extends React.Component {
     handleOnChangeResult = (event) => {
         this.setState({
             result: event.target.value,
+
         })
+        if (this.state.result.length === this.state.text.length - 1) {
+            alert("You done great job!!!");
+            this.handleClickButton(10);
+        }
     }
     handleClickButton = (total) => {
         this.setState({
