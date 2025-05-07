@@ -37,7 +37,7 @@
   }
 }
 #but-regen{
-  width: 30%;
+  width: 200px;
   height: 30px;
   border: solid 2px;
   border-radius: 10px;
@@ -50,4 +50,22 @@
   opacity: 0;
   caret-color: transparent;
   
+
+}
+#input-length{
+  width: 100px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  border-color: transparent;
+}
+#quest{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exam{
+  width: 70%;
+  min-width: 200px;
 }

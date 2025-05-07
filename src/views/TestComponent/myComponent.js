@@ -4,6 +4,7 @@ class MyComponent extends React.Component {
 
     state = {
         text: "Hi, there is the test for typing app",
+        lengths: 10,
         result: ""
     }
     handleOnChangeResult = (event) => {
@@ -13,8 +14,13 @@ class MyComponent extends React.Component {
         })
         if (this.state.result.length === this.state.text.length - 1) {
             alert("You done great job!!!");
-            this.handleClickButton(10);
+            this.handleClickButton(this.state.lengths);
         }
+    }
+    handleOnChangeLengths = (event) => {
+        this.setState({
+            lengths: Number(event.target.value)
+        })
     }
     handleClickButton = (total) => {
         this.setState({
@@ -67,10 +73,32 @@ class MyComponent extends React.Component {
         window.addEventListener('keydown', (event) => this.handleKeyDown(event));
         return (
             <div>
-                <h1 className="exam" style={{ fontSize: "1.5rem", lineHeight: "1.4", userSelect: "none" }}>{chars}</h1>
+                <div id="quest">
+                    <h1 className="exam" style={{ fontSize: "1.5rem", lineHeight: "1.4", userSelect: "none" }}>{chars}</h1>
+                </div>
                 <br />
                 <input id="input-script" autoFocus type="text" value={this.state.result} onChange={(event) => this.handleOnChangeResult(event)} /><br />
-                <button id="but-regen" onClick={() => this.handleClickButton(10)}>Reload</button>
+                <select id="input-length" onChange={(event) => this.handleOnChangeLengths(event)}>
+                    <option value="10">
+                        10
+                    </option>
+                    <option value="15">
+                        15
+                    </option>
+                    <option value="20">
+                        20
+                    </option>
+                    <option value="30">
+                        30
+                    </option>
+                    <option value="40">
+                        40
+                    </option>
+                    <option value="50">
+                        50
+                    </option>
+                </select><br />
+                <button id="but-regen" onClick={() => this.handleClickButton(this.state.lengths)}>Reload</button>
             </div >
         )
     }
