@@ -1,12 +1,16 @@
 import React from "react";
 import word from "../data/word.json";
+import TextComponent from "./textComponent";
+
+import CompletePopUpComponent from "./completePopUpComponent";
 import { toast } from 'react-toastify';
 class TypingComponent extends React.Component {
 
     state = {
         text: "Hi, there is the test for typing app",
         lengths: 10,
-        result: ""
+        result: "",
+        checkDoneTyping: false
     }
     handleOnChangeResult = (event) => {
         this.setState({
@@ -25,7 +29,10 @@ class TypingComponent extends React.Component {
                 progress: undefined,
                 theme: "light",
             });
-            this.handleClickButton(this.state.lengths);
+            this.setState({
+                checkDoneTyping: !this.statecheckDoneTyping
+            })
+            // this.handleClickButton(this.state.lengths);
         }
     }
     handleOnChangeLengths = (event) => {
@@ -36,12 +43,13 @@ class TypingComponent extends React.Component {
     handleClickButton = (total) => {
         this.setState({
             text: this.getRandomWord(word, total),
-            result: ""
-        })
-        const inputEle = document.getElementById("input-script");
-        if (inputEle) {
-            inputEle.focus();
-        }
+            result: "",
+            checkDoneTyping: false
+        });
+        // const inputEle = document.getElementById("input-script");
+        // if (inputEle) {
+        //     inputEle.focus();
+        // }
         toast.success('Regeneration complete', {
             position: "top-right",
             autoClose: 3000,
@@ -72,32 +80,31 @@ class TypingComponent extends React.Component {
         const inputEle = document.getElementById("input-script");
         inputEle.focus();
     };
-
     render() {
-        const text = this.state.text;
-        const { result } = this.state;
-        const chars = text.split("").map((char, index) => {
-            let Color = "";
-            if (index < result.length) {
-                if (result[index] === char) {
-                    Color = "lightgreen";
-                } else {
-                    Color = "lightcoral";
-                }
-            }
-            return (
-                <span key={index} style={{ backgroundColor: Color }}>
-                    {char}
-                </span>
-            );
+
+        window.addEventListener('keydown', (event) => {
+            !this.state.checkDoneTyping &&
+                this.handleKeyDown(event)
+
+
         });
-        window.addEventListener('keydown', (event) => this.handleKeyDown(event));
         return (
             <div>
-                <div id="quest">
-                    <h1 className="exam" style={{ fontSize: "1.5rem", lineHeight: "1.4", userSelect: "none" }}>{chars}</h1>
-                </div>
+                <TextComponent
+                    text={this.state.text}
+                    result={this.state.result}
+                />
+
+
                 <br />
+                <CompletePopUpComponent
+                    lengths={this.state.lengths}
+                    handleClickButton={this.handleClickButton}
+                    checkDoneTyping={this.state.checkDoneTyping}
+                // getRandomWord={this.getRandomWord}
+                />
+
+
                 <input id="input-script" autoFocus type="text" value={this.state.result} onChange={(event) => this.handleOnChangeResult(event)} /><br />
                 <select id="input-length" onChange={(event) => this.handleOnChangeLengths(event)}>
                     <option value="10">

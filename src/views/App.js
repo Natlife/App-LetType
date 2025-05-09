@@ -1,4 +1,5 @@
 import './App.scss';
+import '../styles/textComponent.scss';
 import logo from "../assets/images/logo.png"
 import TypingComponent from '../components/typingComponent';
 
