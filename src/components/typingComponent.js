@@ -21,13 +21,14 @@ class TypingComponent extends React.Component {
             // alert("You done great job!!!");
             toast(' 👑 You done great job!!! 🎉 🎉 🎉', {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 4000,
                 hideProgressBar: false,
                 closeOnClick: false,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
                 theme: "light",
+                className: "toast-complete"
             });
             this.setState({
                 checkDoneTyping: !this.statecheckDoneTyping
@@ -59,6 +60,7 @@ class TypingComponent extends React.Component {
             draggable: true,
             progress: undefined,
             theme: "light",
+            className: "toast-complete"
         });
     }
     /*
@@ -89,38 +91,27 @@ class TypingComponent extends React.Component {
 
         });
         return (
-            <div>
-                <TextComponent
-                    text={this.state.text}
-                    result={this.state.result}
-                />
-
-
-                <br />
+            <div className="body-container">
                 <CompletePopUpComponent
                     lengths={this.state.lengths}
                     handleClickButton={this.handleClickButton}
                     checkDoneTyping={this.state.checkDoneTyping}
                 // getRandomWord={this.getRandomWord}
                 />
-
-
+                <TextComponent
+                    text={this.state.text}
+                    result={this.state.result}
+                />
                 <input id="input-script" autoFocus type="text" value={this.state.result} onChange={(event) => this.handleOnChangeResult(event)} /><br />
                 <select id="input-length" onChange={(event) => this.handleOnChangeLengths(event)}>
                     <option value="10">
                         10
-                    </option>
-                    <option value="15">
-                        15
                     </option>
                     <option value="20">
                         20
                     </option>
                     <option value="30">
                         30
-                    </option>
-                    <option value="40">
-                        40
                     </option>
                     <option value="50">
                         50

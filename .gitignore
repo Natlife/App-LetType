@@ -11,6 +11,11 @@
 # production
 /build
 
+# Electron build
+/dist
+/out
+/*.log
+
 # misc
 .DS_Store
 .env.local

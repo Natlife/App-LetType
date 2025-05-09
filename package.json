@@ -2,6 +2,8 @@
   "name": "let-type",
   "version": "0.1.0",
   "private": true,
+  "main": "electronjs/main.js",
+  "homepage": "./",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -13,11 +15,36 @@
     "react-toastify": "^11.0.5",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "36.2.0",
+    "electron-builder": "^24.13.3",
+    "electron-is-dev": "^3.0.1",
+    "wait-on": "^7.2.0"
+  },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"npm run react-start\" \"npm run electron-start\"",
+    "react-start": "react-scripts start",
+    "electron-start": "wait-on http://localhost:3000 && electron .",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "electron-build": "electron-builder",
+    "dist": "npm run build && electron-builder"
+  },
+  "build": {
+    "appId": "com.natlife.lettype",
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist"
+    },
+    "files": [
+      "build/**/*",
+      "electronjs/main.js",
+      "electronjs/preload.js",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    }
   },
   "eslintConfig": {
     "extends": [

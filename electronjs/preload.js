@@ -1,3 +1,3 @@
-// window.addEventListener('DOMContentLoaded', () => {
-
-// });
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('Preload script loaded');
+});
