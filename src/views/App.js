@@ -1,14 +1,17 @@
 import './App.scss';
 import logo from "../assets/images/logo.png"
-import MyComponent from './TestComponent/myComponent';
+import TypingComponent from '../components/typingComponent';
+
+import { ToastContainer, toast } from 'react-toastify';
 const App = () => {
   return (
     <div className="App">
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" style={{ scale: 0.7 }} />
-        <MyComponent />
+        <TypingComponent />
       </header>
+      <ToastContainer />
     </div>
   );
 }

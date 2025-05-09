@@ -1,6 +1,7 @@
 import React from "react";
-import word from "../../data/word.json";
-class MyComponent extends React.Component {
+import word from "../data/word.json";
+import { toast } from 'react-toastify';
+class TypingComponent extends React.Component {
 
     state = {
         text: "Hi, there is the test for typing app",
@@ -13,7 +14,17 @@ class MyComponent extends React.Component {
 
         })
         if (this.state.result.length === this.state.text.length - 1) {
-            alert("You done great job!!!");
+            // alert("You done great job!!!");
+            toast(' 👑 You done great job!!! 🎉 🎉 🎉', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
             this.handleClickButton(this.state.lengths);
         }
     }
@@ -113,4 +124,4 @@ class MyComponent extends React.Component {
         )
     }
 }
-export default MyComponent;
+export default TypingComponent;
