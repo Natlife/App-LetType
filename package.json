@@ -1,6 +1,6 @@
 {
   "name": "let-type",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "A simple typing application",
   "author": {
     "name": "Ngo Duc Luong",
@@ -64,7 +64,8 @@
       "main": "electronjs/main.js"
     },
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "icon": "public/logo.png"
     }
   },
   "eslintConfig": {
