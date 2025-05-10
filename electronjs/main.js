@@ -9,11 +9,12 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true,
+            preload: path.join(__dirname, 'preload.js')
         },
     });
     if (app.isPackaged) {
         // Khi đóng gói, load file index.html từ build React
-        win.loadFile(path.join(__dirname, '../public/index.html'));
+        win.loadFile(path.join(__dirname, '../build/index.html'));
     } else {
         win.loadURL('http://localhost:3000');
         // win.webContents.openDevTools();

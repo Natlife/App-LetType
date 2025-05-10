@@ -103,7 +103,7 @@ class TypingComponent extends React.Component {
                     result={this.state.result}
                 />
                 <input id="input-script" autoFocus type="text" value={this.state.result} onChange={(event) => this.handleOnChangeResult(event)} /><br />
-                <select id="input-length" onChange={(event) => this.handleOnChangeLengths(event)}>
+                <select className="input-length" onChange={(event) => this.handleOnChangeLengths(event)}>
                     <option value="10">
                         10
                     </option>
@@ -117,7 +117,7 @@ class TypingComponent extends React.Component {
                         50
                     </option>
                 </select><br />
-                <button id="but-regen" onClick={() => this.handleClickButton(this.state.lengths)}>Reload</button>
+                <button className="but-regen" onClick={() => this.handleClickButton(this.state.lengths)}>Reload</button>
             </div >
         )
     }

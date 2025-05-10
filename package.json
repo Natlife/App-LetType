@@ -1,26 +1,45 @@
 {
   "name": "let-type",
   "version": "0.1.0",
+  "description": "A simple typing application",
+  "author": {
+    "name": "Ngo Duc Luong",
+    "email": "ndluong1903@gmail.com"
+  },
   "private": true,
   "main": "electronjs/main.js",
   "homepage": "./",
   "dependencies": {
+    "@craco/craco": "^7.1.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/user-event": "^14.6.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-scripts": "5.0.1",
     "react-toastify": "^11.0.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^5.0.0"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "electron": "36.2.0",
-    "electron-builder": "^24.13.3",
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "app-builder-bin": "^5.0.0-alpha.12",
+    "babel-loader": "^10.0.0",
+    "concurrently": "^9.1.2",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.2",
+    "electron": "^36.2.0",
+    "electron-builder": "^26.0.12",
     "electron-is-dev": "^3.0.1",
-    "wait-on": "^7.2.0"
+    "html-webpack-plugin": "^5.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss": "^8.5.3",
+    "postcss-loader": "^8.1.1",
+    "sass": "^1.87.0",
+    "sass-loader": "^16.0.5",
+    "wait-on": "^8.0.3"
   },
   "scripts": {
     "start": "concurrently \"npm run react-start\" \"npm run electron-start\"",
@@ -28,20 +47,22 @@
     "electron-start": "wait-on http://localhost:3000 && electron .",
     "build": "react-scripts build",
     "electron-build": "electron-builder",
-    "dist": "npm run build && electron-builder"
+    "dist": "npm run build && npm run electron-build"
   },
   "build": {
-    "appId": "com.natlife.lettype",
+    "appId": "com.mycompany.lettype",
     "directories": {
       "buildResources": "assets",
       "output": "dist"
     },
     "files": [
       "build/**/*",
-      "electronjs/main.js",
-      "electronjs/preload.js",
+      "electronjs/**/*",
       "package.json"
     ],
+    "extraMetadata": {
+      "main": "electronjs/main.js"
+    },
     "win": {
       "target": "nsis"
     }
@@ -63,5 +84,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.3"
   }
 }
