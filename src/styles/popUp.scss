@@ -7,19 +7,58 @@
     background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
+    gap: 50px;
     z-index: 9999;
     padding: 20px;
 
-    
+    .notify-stat{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        .stat-container{
+            display: flex;
+            justify-content: left;
+            gap:5px;
+            width: 95%;
+            border-bottom: 2px solid #95ccdb;
+            
+
+            .stat-title{
+                font-size: 80%;
+                display: flex;
+                justify-content: end;
+                align-items: end;
+                width: 30%;
+                padding-bottom: 5%;
+                color: #95ccdb;
+            }
+            .stat-value{
+                display: flex;
+                align-items: start;
+                width: 70%;
+                font-size: 250%;
+                color: #91e5fc;
+            }
+        }
+    }
     .notify-container{
+        width: 40%;
         display: flex;
         justify-content: center;
-        align-items: center;
-        font-size: 70%;
-        height: 10%;
-        border: 1px solid transparent;
-        border-radius: 30px;
-        padding: 0 10px;
-        background-color: #b0e8f8;
+        // align-items: center;
+        .notify-continue{
+            display: flex;
+            align-items: center;
+            justify-content: center ;
+            width: 50%;
+            font-size: 70%;
+            font-weight: bold;
+            height: 10%;
+            border: 1px solid transparent;
+            border-radius: 30px;
+            padding: 0 10px;
+            background-color: #b0e8f8;
+        }
     }
 }
