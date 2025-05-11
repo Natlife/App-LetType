@@ -43,21 +43,68 @@
   
   
   .input-length {
-    width: 100px;
-    height: 30px;
-    background-color: black;
-    color: white;
-    border-color: transparent;
+    width: 15%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(255 255 255 / 0.6);
+    background-color: #FFFFFF1A;
+    color: #f1f5f9;
+    font-size: 1rem;
+    appearance: none; //DELETE the arrow
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px 0 rgba(31 38 135 / 0.37);
+;
+    background-repeat: no-repeat;
+    // background-position:
+    //   calc(100% - 20px) calc(1em + 3px),
+    //   calc(100% - 14px) calc(1em + 3px);
+    background-size: 7px 7px;
+    transition: border-color 0.7s ease, box-shadow 0.7s ease,background-color 0.7s ease;
+
+    option{
+      background-color: #282c34;
+    }
+  }
+  .input-length:hover{
+    background-color: #FFFFFF33;
+    border-color: rgba(255 255 255 / 0.9);
+    box-shadow: 0 12px 48px 0 rgba(31 38 135 / 0.6);
+  }
+  .input-length:focus{
+    background-color: #FFFFFF33;
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 14px #3b82f6aa;
+    background-position:
+      calc(100% - 20px) calc(1em + 4px),
+      calc(100% - 14px) calc(1em + 4px);
   }
   
   .but-regen {
-    width: 200px;
-    height: 30px;
-    border: solid 2px;
-    border-radius: 10px;
-    background-color: #61dafb;
-    color: #282c34;
-    font-weight: bold;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #61dafb;
+    cursor: pointer;
+    border: 3px solid;
+    margin-top: 30px;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    background-color: #282c34;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 20%;
+  }
+  .but-regen:active{
+    box-shadow: 0px 0px 0px 0px;
+    top: 5px;
+    left: 5px;
   }
 }
 
