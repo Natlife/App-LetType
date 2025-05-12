@@ -5,7 +5,7 @@ class StatComponent extends React.Component {
     handleCalWPM = (StartTime, Text) => {
         let CurrentTime = Date.now();
         return (
-            (Text.length / 5) / (CurrentTime - StartTime)
+            Math.round(Text.length / 5) / ((CurrentTime - StartTime) / 1000 / 60)
         )
     }
     handleCalExactRate = (Text, Result) => {
