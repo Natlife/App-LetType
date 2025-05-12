@@ -10,13 +10,25 @@ class TypingComponent extends React.Component {
         text: "Hi, there is the test for typing app",
         lengths: 10,
         result: "",
-        checkDoneTyping: false
+        ExactCount: 0,
+        checkDoneTyping: false,
+        StartTime: Date.now(),
+        StartTimeFlag: false
     }
     handleOnChangeResult = (event) => {
+        if (this.state.checkDoneTyping === true) {
+            return;
+        }
         this.setState({
             result: event.target.value,
 
         })
+        if (this.state.StartTimeFlag === false) {
+            this.setState({
+                StartTime: Date.now(),
+                StartTimeFlag: true
+            })
+        }
         if (this.state.result.length === this.state.text.length - 1) {
             // alert("You done great job!!!");
             toast(' 👑 You done great job!!! 🎉 🎉 🎉', {
@@ -31,7 +43,8 @@ class TypingComponent extends React.Component {
                 className: "toast-complete"
             });
             this.setState({
-                checkDoneTyping: !this.statecheckDoneTyping
+                checkDoneTyping: !this.statecheckDoneTyping,
+                StartTimeFlag: false
             })
             // this.handleClickButton(this.state.lengths);
         }
@@ -45,6 +58,7 @@ class TypingComponent extends React.Component {
         this.setState({
             text: this.getRandomWord(word, total),
             result: "",
+            ExactCount: 0,
             checkDoneTyping: false
         });
         // const inputEle = document.getElementById("input-script");
@@ -94,6 +108,9 @@ class TypingComponent extends React.Component {
             <div className="body-container">
                 <CompletePopUpComponent
                     lengths={this.state.lengths}
+                    StartTime={this.state.StartTime}
+                    Text={this.state.text}
+                    Result={this.state.result}
                     handleClickButton={this.handleClickButton}
                     checkDoneTyping={this.state.checkDoneTyping}
                 // getRandomWord={this.getRandomWord}

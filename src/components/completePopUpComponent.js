@@ -1,5 +1,7 @@
 import React from "react";
 import CongratComponent from "./congratComponent";
+import StatComponent from "./statComponent";
+
 import '../styles/popUp.scss';
 
 class CompletePopUpComponent extends React.Component {
@@ -27,11 +29,11 @@ class CompletePopUpComponent extends React.Component {
                         <div className="popup-back"
                             onClick={() => this.props.handleClickButton(this.props.lengths)}
                         >
-                            <div className="notify-stat">
-                                <div className="stat-container"><span className="stat-title">WPM:</span>  <span className="stat-value">100</span></div>
-                                <div className="stat-container"><span className="stat-title">ACC:</span>  <span className="stat-value">100%</span></div>
-                                <div className="stat-container"><span className="stat-title">Time:</span> <span className="stat-value">10:00</span></div>
-                            </div>
+                            <StatComponent
+                                StartTime={this.props.StartTime}
+                                Text={this.props.Text}
+                                Result={this.props.Result}
+                            />
                             <div className="notify-container"><div className="notify-continue">Enter to continue</div></div>
                             <div className="notify-stat"></div>
                         </div>
