@@ -7,7 +7,7 @@ const styles = {
   fireworkContainer: {
     position: 'absolute',
     bottom: 0,
-    width: 500,
+    width: "20%",
     height: '100%',
     pointerEvents: 'none',
     overflow: 'visible',
@@ -82,8 +82,8 @@ class CongratComponent extends React.Component {
     Object.assign(firework.style, {
       position: 'absolute',
       bottom: '0',
-      width: '20px',
-      height: '80px',
+      width: '10px',
+      height: '40px',
       borderRadius: '100%',
       background: '#fff',
       boxShadow: '0 0 10px #ff8c00, 0 0 15px orange',
@@ -101,14 +101,14 @@ class CongratComponent extends React.Component {
         const spark = document.createElement('div');
         Object.assign(spark.style, {
           position: 'absolute',
-          width: '10px',
-          height: '10px',
+          width: '8px',
+          height: '8px',
           background: '#ffcd4e',
           borderRadius: '50%',
           opacity: 0,
           filter: 'drop-shadow(0 0 2px #ffcd4e)',
           left: firework.style.left,
-          bottom: '250px',
+          bottom: '100px',
           animation: 'sparkFly 2000ms ease forwards',
           pointerEvents: 'none',
           transform: 'translate(0,0)',
@@ -139,15 +139,16 @@ class CongratComponent extends React.Component {
               ref={this.leftContainerRef}
               style={{ ...styles.fireworkContainer, left: 10, position: 'absolute' }}
               aria-hidden="true"
-            />
-            <div
+            ></div>
+            {/* <div
               ref={this.rightContainerRef}
               style={{ ...styles.fireworkContainer, right: 10, position: 'absolute' }}
               aria-hidden="true"
-            />
+            >
+
+            </div> */}
 
           </>
-
 
 
         }

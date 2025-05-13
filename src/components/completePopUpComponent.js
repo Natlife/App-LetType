@@ -21,9 +21,9 @@ class CompletePopUpComponent extends React.Component {
         return (
 
             <div>
-                {/* <CongratComponent
+                <CongratComponent
                     checkDoneTyping={this.props.checkDoneTyping}
-                /> */}
+                />
                 {this.props.checkDoneTyping &&
                     <>
                         <div className="popup-back"

@@ -10,6 +10,7 @@ class TypingComponent extends React.Component {
         text: "Hi, there is the test for typing app",
         lengths: 10,
         result: "",
+        language: "ENGLISH",
         ExactCount: 0,
         checkDoneTyping: false,
         StartTime: Date.now(),
@@ -52,6 +53,11 @@ class TypingComponent extends React.Component {
     handleOnChangeLengths = (event) => {
         this.setState({
             lengths: Number(event.target.value)
+        })
+    }
+    handleOnChangeLanguage = (event) => {
+        this.setState({
+            language: event.target.value
         })
     }
     handleClickButton = (total) => {
@@ -120,20 +126,39 @@ class TypingComponent extends React.Component {
                     result={this.state.result}
                 />
                 <input id="input-script" autoFocus type="text" value={this.state.result} onChange={(event) => this.handleOnChangeResult(event)} /><br />
-                <select className="input-length" onChange={(event) => this.handleOnChangeLengths(event)}>
-                    <option value="10">
-                        10
-                    </option>
-                    <option value="20">
-                        20
-                    </option>
-                    <option value="30">
-                        30
-                    </option>
-                    <option value="50">
-                        50
-                    </option>
-                </select><br />
+                <div>
+                    <select className="input-length" onChange={(event) => this.handleOnChangeLengths(event)}>
+                        <option value="10">
+                            10
+                        </option>
+                        <option value="20">
+                            20
+                        </option>
+                        <option value="30">
+                            30
+                        </option>
+                        <option value="50">
+                            50
+                        </option>
+                    </select>
+
+
+                    <select className="input-length" onChange={(event) => this.handleOnChangeLanguage(event)}>
+                        <option value="ENGLISH">
+                            English
+                        </option>
+                        <option value="VIETNAMESE">
+                            Vietnamese
+                        </option>
+                        <option value="HTML">
+                            Html
+                        </option>
+                        <option value="JAVA">
+                            Java
+                        </option>
+                    </select>
+                    <br />
+                </div>
                 <button className="but-regen" onClick={() => this.handleClickButton(this.state.lengths)}>Reload</button>
             </div >
         )
