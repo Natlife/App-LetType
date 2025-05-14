@@ -10,13 +10,14 @@ class StatComponent extends React.Component {
     }
     handleCalExactRate = (Text, Result) => {
         let ExactCount = 0;
+        let maxLength = Math.max(Result.length, Text.length);
         for (let i = 0; i < Text.length; i++) {
             if (Text[i] === Result[i]) {
                 ExactCount++;
             }
         }
         return (
-            Math.round(ExactCount / Text.length * 100).toFixed(1)
+            (ExactCount / maxLength * 100).toFixed(1)
         )
     }
     handleCalTimeTyping = (StartTime) => {

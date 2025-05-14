@@ -9,7 +9,7 @@ class TextComponent extends React.Component {
                 <div className="quest-container">
                     <div className="quest-text">
                         <h1 className="text">
-                            {Array.from({ length: maxLength }).map((_, index) => {
+                            {Array.from({ length: maxLength }).map((_, index, char) => {
                                 let Color = "";
                                 let displayText = "";
 
