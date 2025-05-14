@@ -3,19 +3,31 @@ import React from "react";
 class TextComponent extends React.Component {
     render() {
         const { result, text } = this.props;
+        const maxLength = Math.max(result.length, text.length);
         return (
             <div>
                 <div className="quest-container">
                     <div className="quest-text">
                         <h1 className="text">
-                            {text.split("").map((char, index) => {
+                            {Array.from({ length: maxLength }).map((_, index) => {
                                 let Color = "";
-                                if (index < result.length) {
-                                    result[index] === char ? Color = "lightgreen" : Color = "lightcoral";
+                                let displayText = "";
+
+                                const resultChar = result[index] || "";
+                                const textChar = text[index] || "";
+                                if (index < text.length) {
+                                    displayText = textChar;
+                                    Color = resultChar
+                                        ? (resultChar === textChar ? "lightgreen" : "lightcoral")
+                                        : "";
+                                }
+                                else {
+                                    Color = "lightgray";
+                                    displayText = resultChar;
                                 }
                                 return (
                                     <span key={index} style={{ background: Color }}>
-                                        {char}
+                                        {displayText}
                                     </span>
                                 );
                             })

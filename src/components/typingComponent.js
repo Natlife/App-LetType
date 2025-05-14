@@ -30,35 +30,37 @@ class TypingComponent extends React.Component {
         if (this.state.checkDoneTyping === true) {
             return;
         }
-        this.setState({
-            result: event.target.value,
-
-        })
         if (this.state.StartTimeFlag === false) {
             this.setState({
                 StartTime: Date.now(),
                 StartTimeFlag: true
             })
         }
-        if (this.state.result.length === this.state.text.length) {
-            // alert("You done great job!!!");
-            toast(' 👑 You done great job!!! 🎉 🎉 🎉', {
-                position: "top-right",
-                autoClose: 4000,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                className: "toast-complete"
-            });
-            this.setState({
-                checkDoneTyping: !this.statecheckDoneTyping,
-                StartTimeFlag: false
-            })
-            // this.handleClickButton(this.state.lengths);
-        }
+
+        // if (this.state.result.length === this.state.text.length) {
+        //     // alert("You done great job!!!");
+        //     toast(' 👑 You done great job!!! 🎉 🎉 🎉', {
+        //         position: "top-right",
+        //         autoClose: 4000,
+        //         hideProgressBar: false,
+        //         closeOnClick: false,
+        //         pauseOnHover: true,
+        //         draggable: true,
+        //         progress: undefined,
+        //         theme: "light",
+        //         className: "toast-complete"
+        //     });
+        //     this.setState({
+        //         checkDoneTyping: !this.state.checkDoneTyping,
+        //         StartTimeFlag: false
+        //     })
+        //     // this.handleClickButton(this.state.lengths);
+        //     return;
+        // }
+        this.setState({
+            result: event.target.value,
+
+        })
     }
     handleOnChangeLengths = (event) => {
         this.setState({
@@ -153,7 +155,8 @@ class TypingComponent extends React.Component {
                     text={this.state.text}
                     result={this.state.result}
                 />
-                <input id="input-script" autoFocus type="text" value={this.state.result} onChange={(event) => this.handleOnChangeResult(event)} /><br />
+                <input id="input-script" autoFocus type="text" value={this.state.result}
+                    onChange={(event) => this.handleOnChangeResult(event)} /><br />
                 <div>
                     <select className="input-length" onChange={(event) => this.handleOnChangeLengths(event)}>
                         <option value="10">
