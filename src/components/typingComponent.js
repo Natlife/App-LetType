@@ -1,8 +1,18 @@
 import React from "react";
-import word from "../data/word.json";
-import TextComponent from "./textComponent";
 
+
+//text file
+import englishWord from "../data/englishWord.json";
+import htmlWord from "../data/htmlWord.json";
+import vietnameseWord from "../data/vietnameseWord.json";
+import javaWord from "../data/javaWord.json";
+
+//components
+import TextComponent from "./textComponent";
 import CompletePopUpComponent from "./completePopUpComponent";
+
+
+//libs
 import { toast } from 'react-toastify';
 class TypingComponent extends React.Component {
 
@@ -30,7 +40,7 @@ class TypingComponent extends React.Component {
                 StartTimeFlag: true
             })
         }
-        if (this.state.result.length === this.state.text.length - 1) {
+        if (this.state.result.length === this.state.text.length) {
             // alert("You done great job!!!");
             toast(' 👑 You done great job!!! 🎉 🎉 🎉', {
                 position: "top-right",
@@ -61,8 +71,26 @@ class TypingComponent extends React.Component {
         })
     }
     handleClickButton = (total) => {
+        let language = [];
+        switch (this.state.language) {
+            case "ENGLISH":
+                language = englishWord;
+                break;
+            case "VIETNAMESE":
+                language = vietnameseWord;
+                break;
+            case "HTML":
+                language = htmlWord;
+                break;
+            case "JAVA":
+                language = javaWord;
+                break;
+            default:
+                language = englishWord;
+                break;
+        }
         this.setState({
-            text: this.getRandomWord(word, total),
+            text: this.getRandomWord(language, total),
             result: "",
             ExactCount: 0,
             checkDoneTyping: false
