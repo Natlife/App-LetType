@@ -7,6 +7,7 @@ class AboutComponent extends React.Component {
         github: "Natlife",
         description: "This is a typing app for you to practice typing speed and accuracy. It is a simple app with basic features. You can choose the text to type, the language, and the length of the text. You can also see your typing speed and accuracy.",
         version: "0.0.1",
+        time: Date.now(),
 
     }
     reder() {
@@ -22,6 +23,7 @@ class AboutComponent extends React.Component {
                 <p>Email: {this.state.email}</p>
                 <p>Github: {this.state.github}</p>
                 <p>Description: {this.state.description}</p>
+                <p>last update: {this.state.time}</p>
             </div>
         )
     }

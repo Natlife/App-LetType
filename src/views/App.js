@@ -12,8 +12,8 @@ const App = () => {
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {/* <TypingComponent /> */}
-        <SettingComponent />
+        <TypingComponent />
+        {/* <SettingComponent /> */}
       </header>
       <ToastContainer />
     </div>
