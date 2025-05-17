@@ -1,0 +1,64 @@
+.about-container{
+    display: flex;
+    justify-content: center;
+
+    .App-logo{
+        height: 20vmin !important;
+        
+    }
+    .about-content{
+        position: absolute;
+        bottom: -70%;
+        width: 30%;
+         animation: scrollUp 20s linear infinite;
+        // mask-image: linear-gradient(to top, transparent 0%,
+        //                             black 10%, black 90%,
+        //                             transparent 100%);
+        //
+        color: white;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        text-align: center;
+        letter-spacing: 0.07em;
+        text-shadow:
+        0 0 5px rgb(42, 142, 142),
+        0 0 10px rgb(42, 142, 142);
+
+        .about-title{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            border-bottom: 2px solid white;
+            .app-name{
+                width: 100%;
+
+                .app-version{
+                    width: 90%;
+                    height : 20%;
+                    font-size: 30%;
+                    text-align: right;
+                    
+                }
+                .app-time{
+                    height : 20%;
+                    font-size: 30%;
+                    text-align: center;
+                }
+            }
+        }
+
+        .about-des{
+            border-bottom: 2px solid white;
+            padding-bottom: 10px;
+        }
+    }
+    @keyframes scrollUp {
+        0% {
+            bottom: -130%;
+        }
+        100% {
+            bottom: 100%;
+        }
+    }
+}

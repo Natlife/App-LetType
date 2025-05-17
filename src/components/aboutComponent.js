@@ -1,5 +1,6 @@
 import React from "react";
-
+import logo from "../assets/images/logo.png";
+import "../styles/about.scss";
 class AboutComponent extends React.Component {
     state = {
         author: "Ngo Duc Luong",
@@ -7,24 +8,34 @@ class AboutComponent extends React.Component {
         github: "Natlife",
         description: "This is a typing app for you to practice typing speed and accuracy. It is a simple app with basic features. You can choose the text to type, the language, and the length of the text. You can also see your typing speed and accuracy.",
         version: "0.0.1",
-        time: Date.now(),
+        time: "5/17/2025",
 
     }
-    reder() {
+    render() {
         return (
-            <div>
+            <div className="about-container">
 
-                <h2>About</h2>
-                <div>
-                    <h3>Let TypeType</h3>
-                    <p>version: {this.state.version}</p>
+                <div className="about-content">
+                    <img src={logo} className="App-logo" alt="logo" />
+                    <div className="about-title">
+                        <h1 className="app-name">
+                            Let TypeType
+                            <p className="app-version">version: {this.state.version}</p>
+                            <p className="app-time">last update: {this.state.time}</p>
+                        </h1>
+
+                    </div>
+                    <p className="about-des">Description: {this.state.description}</p>
+                    <p>Author: {this.state.author}</p>
+                    <p>Email: {this.state.email}</p>
+                    <p className="about-des">Github: {this.state.github}</p>
+
+
+                    <p>Have a good day!</p>
+                    <p>The end.</p>
+                    <p>* * * * * * *</p>
                 </div>
-                <p>Author: {this.state.author}</p>
-                <p>Email: {this.state.email}</p>
-                <p>Github: {this.state.github}</p>
-                <p>Description: {this.state.description}</p>
-                <p>last update: {this.state.time}</p>
-            </div>
+            </div >
         )
     }
 }

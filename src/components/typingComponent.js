@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../assets/images/logo.png";
 
 
 //text file
@@ -159,6 +160,7 @@ class TypingComponent extends React.Component {
         });
         return (
             <div className="body-container">
+                <img src={logo} className="App-logo" alt="logo" />
                 <CompletePopUpComponent
                     lengths={this.state.lengths}
                     StartTime={this.state.StartTime}
