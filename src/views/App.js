@@ -13,9 +13,9 @@ const App = () => {
 
       <header className="App-header">
 
-        {/* <TypingComponent /> */}
+        <TypingComponent />
         {/* <SettingComponent /> */}
-        <AboutComponent />
+        {/* <AboutComponent /> */}
       </header>
       <ToastContainer />
     </div>
