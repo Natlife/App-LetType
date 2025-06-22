@@ -78,6 +78,7 @@ class TypingComponent extends React.Component {
             checkDoneTyping: false
         });
         toast.success('Regeneration complete', {
+            toastId: "regen-complete",
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: false,
@@ -116,6 +117,7 @@ class TypingComponent extends React.Component {
         if (e.key === " ") {
             if (this.state.result.length >= this.state.text.length) {
                 toast(' 👑 You done great job!!! 🎉 🎉 🎉', {
+                    toastId: "done-typing",
                     position: "top-right",
                     autoClose: 4000,
                     hideProgressBar: false,
