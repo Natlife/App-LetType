@@ -1,6 +1,6 @@
 {
   "name": "let-type",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple typing application",
   "author": {
     "name": "Ngo Duc Luong",
@@ -98,8 +98,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "optionalDependencies": {
-    "fsevents": "^2.3.3"
   }
 }
