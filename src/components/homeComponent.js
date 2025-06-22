@@ -1,8 +1,6 @@
 import React from "react";
-
-import TypingComponent from "./typingComponent";
-import AboutComponent from "./aboutComponent";
-import { Link, NavLink } from "react-router-dom";
+import '../styles/home.scss';
+import { NavLink } from "react-router-dom";
 class HomeComponent extends React.Component {
     render() {
         return (

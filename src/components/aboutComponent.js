@@ -7,7 +7,7 @@ class AboutComponent extends React.Component {
         email: "ndluong1903@gmail.com",
         github: "Natlife",
         description: "This is a typing app for you to practice typing speed and accuracy. It is a simple app with basic features. You can choose the text to type, the language, and the length of the text. You can also see your typing speed and accuracy.",
-        version: "0.0.1",
+        version: "0.0.2",
         time: "5/17/2025",
 
     }

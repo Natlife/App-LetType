@@ -37,13 +37,6 @@ class TypingComponent extends React.Component {
                 StartTimeFlag: true
             })
         }
-        // if (e.key == "Enter") {
-
-        // if (this.state.result.length >= this.state.text.length) {
-        //     // alert("You done great job!!!");
-
-        // }
-        // }
         this.setState({
             result: event.target.value,
 
@@ -84,10 +77,6 @@ class TypingComponent extends React.Component {
             ExactCount: 0,
             checkDoneTyping: false
         });
-        // const inputEle = document.getElementById("input-script");
-        // if (inputEle) {
-        //     inputEle.focus();
-        // }
         toast.success('Regeneration complete', {
             position: "top-right",
             autoClose: 3000,
@@ -212,6 +201,7 @@ class TypingComponent extends React.Component {
                     <br />
                 </div>
                 <button className="but-regen" onClick={() => this.handleClickButton(this.state.lengths)}>Reload</button>
+                <p className="note">#Space to submit the typing when the result equal or greater than the gen-text</p>
             </div >
         )
     }
