@@ -8,7 +8,7 @@ import AboutComponent from '../components/aboutComponent';
 
 import { ToastContainer } from 'react-toastify';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";

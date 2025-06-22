@@ -14,11 +14,9 @@ function createWindow() {
         },
     });
     if (app.isPackaged) {
-        // Khi đóng gói, load file index.html từ build React
         win.loadFile(path.join(__dirname, '../build/index.html'));
     } else {
         win.loadURL('http://localhost:3000');
-        // win.webContents.openDevTools();
     }
 }
 app.whenReady().then(() => {
